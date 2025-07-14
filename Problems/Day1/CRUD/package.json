@@ -1,5 +1,5 @@
 {
-  "name": "myproject",
+  "name": "crud",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,9 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@types/node": "^24.0.13",
     "dotenv": "^17.2.0",
     "mongodb": "^6.17.0"
-  },
-  "devDependencies": {}
+  }
 }
