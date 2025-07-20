@@ -1,20 +1,17 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const { auth } = require("./auth");
 
-app.use("/admin", (req, res, next) => {
-  console.log("executig auth");
-  const token = "xyz";
-  const isAdminAuth = token === "xyz";
-  if (!isAdminAuth) {
-    res.status(401).send("unauthorized acess");
-  } else {
-    next();
-  }
+app.get("/admin/getall", auth, (req, res) => {
+  res.send("Hello from admin");
 });
 
-app.get("/admin/getall", (req, res) => {
-  res.send("Hello from admin");
+// ! handlin errors if some error occurs without us knowing
+app.use((err, req, res, next) => {
+  if (err) {
+    res.status(500).send({ message: "Something is wong bud" });
+  }
 });
 
 app.listen(port, () => {
